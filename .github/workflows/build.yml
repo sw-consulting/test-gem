@@ -19,7 +19,7 @@ jobs:
         
     - run: bundle install
 
-    - run: bundle exec rake
+    - run: bundle exec rake build
 
     - uses: actions/upload-artifact@v2
       with:

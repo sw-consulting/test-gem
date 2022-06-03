@@ -23,6 +23,8 @@ jobs:
 
     - run: bundle exec rake --tasks
 
+    - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
+
   alpine:
     runs-on: ubuntu-latest
     container:
@@ -39,6 +41,6 @@ jobs:
 
     - run: bundle install
 
-    - run: bundle exec rake
-
     - run: bundle exec rake --tasks
+
+    - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")

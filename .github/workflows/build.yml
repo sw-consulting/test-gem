@@ -21,6 +21,8 @@ jobs:
 
     - run: bundle exec rake
 
+    - run: bundle exec rake --tasks
+
   alpine:
     runs-on: ubuntu-latest
     container:
@@ -38,3 +40,5 @@ jobs:
     - run: bundle install
 
     - run: bundle exec rake
+
+    - run: bundle exec rake --tasks

@@ -1,8 +1,8 @@
-# MaxirmxTestGem
+[![Gem Version](https://badge.fury.io/rb/maxirmx_test_gem.svg)](https://badge.fury.io/rb/maxirmx_test_gem)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/maxirmx_test_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
+# maxirmx test gem
 
-TODO: Delete this and the text above, and describe your gem
+This is a test gem. Nothing interesting, folks.
 
 ## Installation
 

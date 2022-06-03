@@ -8,15 +8,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Maxim [maxirmx] Samsonov"]
   spec.email         = ["m.samsonov@computer.org"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Test gem"
+  spec.description   = "Test gem to validate musl-compatible packaging"
+  spec.homepage      = "https://github.com/maxirmx/maxirmx_test_gem"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
 
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/maxirmx/maxirmx_test_gem"
+  spec.metadata["source_code_uri"] = spec.homepage
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

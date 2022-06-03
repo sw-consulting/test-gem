@@ -27,12 +27,14 @@ jobs:
       image: alpine:latest
 
     steps:
-      - name: Install packages
-        run: |
-          apk --no-cache --upgrade add build-base cmake git bash ruby-dev
+    - uses: actions/checkout@v3
 
-      - run: gem install bundler
+    - name: Install packages
+      run: |
+        apk --no-cache --upgrade add build-base cmake git bash ruby-dev
 
-      - run: bundle install
+    - run: gem install bundler
 
-      - run: bundle exec rake
+    - run: bundle install
+
+    - run: bundle exec rake

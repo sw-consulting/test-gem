@@ -20,3 +20,19 @@ jobs:
     - run: bundle install
 
     - run: bundle exec rake
+
+  alpine:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+
+    steps:
+      - name: Install packages
+        run: |
+          apk --no-cache --upgrade add build-base cmake git bash ruby-dev
+
+      - run: gem install bundler
+
+      - run: bundle install
+
+      - run: bundle exec rake

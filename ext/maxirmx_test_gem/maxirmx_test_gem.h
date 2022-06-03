@@ -1,6 +1,7 @@
 #ifndef MAXIRMX_TEST_GEM_H
 #define MAXIRMX_TEST_GEM_H 1
 
-#include "ruby.h"
+#include <rice/rice.hpp>
+#include <rice/stl.hpp>
 
 #endif /* MAXIRMX_TEST_GEM_H */

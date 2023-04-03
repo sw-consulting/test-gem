@@ -10,7 +10,7 @@ jobs:
       - name: Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token:  ${{ secrets.TEST_TOKEN }}
+          token:  ${{ secrets.TEST_TOKEN_2 }}
           repository: 'rnpgp/ruby-rnp'
           event-type: run-ruby-rnp
           client-payload: '{ "version": "${{ github.ref_name }}" }'

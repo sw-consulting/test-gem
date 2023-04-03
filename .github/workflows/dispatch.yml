@@ -1,0 +1,16 @@
+name: dependencies
+on:
+  workflow_dispatch:
+
+jobs:
+  dispatch-ruby-rnp:
+    name: Dispatch Ryby-rnp repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token:  ${{ secrets.TEST_TOKEN }}
+          repository: 'rnpgp/ruby-rnp'
+          event-type: run-ruby-rnp
+          client-payload: '{ "version": "${{ github.ref_name }}" }'

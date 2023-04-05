@@ -13,4 +13,4 @@ jobs:
           token:  ${{ secrets.TEST_TOKEN_2 }}
           repository: 'rnpgp/ruby-rnp'
           event-type: run-ruby-rnp
-          client-payload: '{ "version": "${{ github.ref_name }}" }'
+          client-payload: '{ "version": "master" }'

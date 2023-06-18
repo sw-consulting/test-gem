@@ -40,9 +40,12 @@ task:
     mkdir -p cmake-install
     pushd cmake-install
     curl -L -o cmake.sh \
-    https://github.com/Kitware/CMake/releases/download/v"$CMAKE_VERSION"/cmake-"$CMAKE_VERSION"-linux-aarch64.sh
+    https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.sh
     sudo sh cmake.sh --skip-license --prefix="/usr/local"
     popd
+
+#    https://github.com/Kitware/CMake/releases/download/v"$CMAKE_VERSION"/cmake-"$CMAKE_VERSION"-linux-aarch64.sh
+
 
 # cirrus-ci hash does not work for optimized Ruby patching/build
 # most likely it changes file times that causes make do a kind of

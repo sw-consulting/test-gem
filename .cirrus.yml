@@ -32,7 +32,6 @@ task:
       libncurses-dev libreadline-dev clang ruby-dev ruby-bundler ca-certificates
 
   pre-setup_script: |
-    cat common.env >> $CIRRUS_ENV
     git clone --depth 1 https://github.com/kward/shunit2.git tests/shunit2
 
   setup-cmake_script: |

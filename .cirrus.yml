@@ -20,10 +20,11 @@ task:
 # { CC: gcc, CXX: g++ } commented to save Cirrus-ci limited capacity
 # (clang is better both for performance and size)
 
-#  install_script: |
-#    DEBIAN_FRONTEND=noninteractive apt-get -y update
-#    DEBIAN_FRONTEND=noninteractive \
-#    apt-get -y install sudo git curl build-essential pkg-config bison flex autoconf \
+  install_script: |
+    DEBIAN_FRONTEND=noninteractive apt-get -y update
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install git curl
+#    build-essential pkg-config bison flex autoconf
 #      binutils-dev libevent-dev acl-dev libfmt-dev libjemalloc-dev libiberty-dev    \
 #      libdouble-conversion-dev liblz4-dev liblzma-dev libssl-dev libunwind-dev      \
 #      libboost-context-dev libboost-filesystem-dev libboost-program-options-dev     \

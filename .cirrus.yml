@@ -23,7 +23,7 @@ task:
   install_script: |
     DEBIAN_FRONTEND=noninteractive apt-get -y update
     DEBIAN_FRONTEND=noninteractive \
-    apt-get -y install git curl
+    apt-get -y install sudo git curl
 #    build-essential pkg-config bison flex autoconf
 #      binutils-dev libevent-dev acl-dev libfmt-dev libjemalloc-dev libiberty-dev    \
 #      libdouble-conversion-dev liblz4-dev liblzma-dev libssl-dev libunwind-dev      \

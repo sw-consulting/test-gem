@@ -12,3 +12,6 @@
 *.a
 mkmf.log
 Gemfile.lock
+
+.rspec_status
+.vscode

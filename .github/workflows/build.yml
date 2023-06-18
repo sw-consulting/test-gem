@@ -1,8 +1,8 @@
 name: build
 
 on:
-  push:
-  pull_request:
+#  push:
+#  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       with:
         bundler-cache: true
         ruby-version: 3.1
-        
+
     - run: bundle install
 
     - run: bundle exec rake build

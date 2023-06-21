@@ -42,6 +42,7 @@ task:
   setup-cmake_script: |
     mkdir -p cmake-install
     pushd cmake-install
+    curl -V https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.sh
     curl -L -o cmake.sh \
     https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-aarch64.sh
     sudo sh cmake.sh --skip-license --prefix="/usr/local"

@@ -13,9 +13,9 @@ on:
 
 jobs:
   bump:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -35,12 +35,12 @@ jobs:
     needs: bump
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
-        ruby-version: 3.1
+        ruby-version: 3.3
 
     - run: bundle install
 
@@ -109,7 +109,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: 3.3
 
       - run: ls -l pkg/
 

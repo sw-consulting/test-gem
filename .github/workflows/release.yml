@@ -111,7 +111,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: pkg-*
+          pattern: pkg-*
           path: pkg
 
       - run: ls -l pkg/

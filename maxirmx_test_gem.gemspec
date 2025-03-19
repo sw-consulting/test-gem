@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["maxirmx@sw.consulting"]
 
   spec.summary       = "Test gem"
-  spec.homepage      = "https://github.com/sw-consulting/maxirmx_test_gem"
+  spec.homepage      = "https://github.com/sw-consulting/test-gem"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
   spec.metadata["github_repo"] = spec.homepage

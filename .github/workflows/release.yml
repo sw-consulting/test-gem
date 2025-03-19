@@ -117,7 +117,8 @@ jobs:
           pattern: pkg-*
           path: pkg
 
-      - run: ls -l pkg/
+      - name: List downloaded artifacts
+        run: find pkg -name "*.gem" | sort
 
       - name: Publish to rubygems.org
         env:
@@ -130,4 +131,7 @@ jobs:
           EOF
           chmod 0600 ~/.gem/credentials
           gem signin
-          for gem in pkg/*.gem; do gem push $gem -V; done
+          for gem in $(find pkg -name "*.gem"); do
+            echo "Publishing $gem"
+            gem push $gem -V
+          done

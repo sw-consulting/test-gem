@@ -57,6 +57,7 @@ jobs:
       with:
         name: pkg-ruby
         path: pkg/*.gem
+        retention-days: 1
 
     - name: Build gem with native extension
       run: |
@@ -68,6 +69,7 @@ jobs:
       with:
         name: pkg-x86_64-linux
         path: pkg/*.gem
+        retention-days: 1
 
   alpine:
     runs-on: ubuntu-latest
@@ -97,6 +99,7 @@ jobs:
         with:
           name: pkg-x86_64-linux-musl
           path: pkg/*.gem
+          retention-days: 1
 
   publish:
     runs-on: ubuntu-latest

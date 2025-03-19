@@ -26,8 +26,8 @@ jobs:
 
       - if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name maxirmx
+          git config user.email maxirmx@sw.consulting
           gem install gem-release
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           gem bump --version ${{ github.event.inputs.next_version }} --tag --push

@@ -72,6 +72,7 @@ jobs:
     - name: Install packages
       run: |
         apk --no-cache --upgrade add build-base cmake git bash ruby-dev
+        git config --global --add safe.directory /__w/test-gem/test-gem
 
     - uses: actions/checkout@v4
 

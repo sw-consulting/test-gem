@@ -26,8 +26,9 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          gem install gem-release
-          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
+            gem install gem-release
+            git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+            gem bump --version ${{ github.event.inputs.next_version }} --tag --push
 
   ubuntu:
     runs-on: ubuntu-latest
@@ -54,8 +55,6 @@ jobs:
 
     - run: rm pkg/*.gem
 
-    - run: bundle exec rake --tasks
-
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
     - uses: actions/upload-artifact@v4
@@ -78,10 +77,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - run: gem install bundler
-
     - name: Install bundle
-      run: bundle install
+      run: |
+        gem install bundler
+        bundle install
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 

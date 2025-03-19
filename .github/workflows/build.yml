@@ -52,10 +52,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - run: gem install bundler
-
     - name: Install bundle
-      run: bundle install
+      run: |
+        gem install bundler
+        bundle install
+
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 

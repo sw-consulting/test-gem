@@ -13,15 +13,15 @@ on:
 
 jobs:
   bump:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: 3.3
 
       - if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
@@ -35,18 +35,19 @@ jobs:
     needs: bump
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
-        ruby-version: 3.1
+        ruby-version: 3.3
 
     - run: bundle install
 
     - run: bundle exec rake build
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-ruby
         path: pkg/*.gem
@@ -57,7 +58,7 @@ jobs:
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-x86_64-linux
         path: pkg/*.gem
@@ -72,8 +73,10 @@ jobs:
     - name: Install packages
       run: |
         apk --no-cache --upgrade add build-base cmake git bash ruby-dev
+        git config --global --add safe.directory /__w/test-gem/test-gem
 
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - run: gem install bundler
 
@@ -83,7 +86,7 @@ jobs:
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-x86_64-linux-musl
         path: pkg/*.gem
@@ -92,24 +95,24 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ubuntu, alpine]
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: pkg-ruby
           path: pkg
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: pkg-x86_64-linux
           path: pkg
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: pkg-x86_64-linux-musl
           path: pkg
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: 3.3
 
       - run: ls -l pkg/
 

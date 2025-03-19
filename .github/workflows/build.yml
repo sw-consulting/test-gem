@@ -19,7 +19,8 @@ jobs:
         bundler-cache: true
         ruby-version: 3.3
 
-    - run: bundle install
+    - name: Install bundle
+      run: bundle install
 
     - run: bundle exec rake build
 
@@ -53,7 +54,8 @@ jobs:
 
     - run: gem install bundler
 
-    - run: bundle install
+    - name: Install bundle
+      run: bundle install
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 

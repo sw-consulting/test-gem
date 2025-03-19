@@ -15,9 +15,8 @@ jobs:
   bump:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -43,7 +42,8 @@ jobs:
         bundler-cache: true
         ruby-version: 3.3
 
-    - run: bundle install
+    - name: Install bundle
+      run: bundle install
 
     - run: bundle exec rake build
 
@@ -80,9 +80,8 @@ jobs:
 
     - run: gem install bundler
 
-    - run: bundle install
-
-    - run: bundle exec rake --tasks
+    - name: Install bundle
+      run: bundle install
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 

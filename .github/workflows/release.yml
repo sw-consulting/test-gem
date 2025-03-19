@@ -151,7 +151,7 @@ jobs:
           :github: Bearer ${GITHUB_API_KEY}
           EOF
           chmod 0600 ~/.gem/credentials
-          for gem in $(find pkg -name "*.gem"); do
+          for gem in $(find pkg/pkg-ruby -name "*.gem"); do
             echo "Publishing to GitHub Packages: $gem"
              gem push --key github --host https://rubygems.pkg.github.com/${GITHUB_REPOSITORY_OWNER} $gem
           done

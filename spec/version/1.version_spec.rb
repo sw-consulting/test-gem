@@ -1,11 +1,11 @@
 require "spec_helper"
 
-RSpec.describe "MaxirmxTestGem" do
+RSpec.describe "TestGem" do
   describe "version" do
     it "has a version number" do |example|
       print "\n[#{example.description}] "
-      expect(MaxirmxTestGem::VERSION).not_to be nil
-      print "=== maxirmx test gem version #{MaxirmxTestGem::VERSION} === "
+      expect(TestGem::VERSION).not_to be nil
+      print "=== maxirmx test gem version #{TestGem::VERSION} === "
 
       # Validate Object Space
       GC.start

@@ -35,7 +35,8 @@ jobs:
     needs: bump
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - uses: ruby/setup-ruby@v1
       with:
@@ -74,7 +75,8 @@ jobs:
         apk --no-cache --upgrade add build-base cmake git bash ruby-dev
         git config --global --add safe.directory /__w/test-gem/test-gem
 
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - run: gem install bundler
 

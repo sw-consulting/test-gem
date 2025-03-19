@@ -12,9 +12,9 @@ public:
 extern "C"
 void Init_maxirmx_test_gem(void)
 {
-  Module rb_mMaxirmxTestGem = define_module("MaxirmxTestGem");
+  Module rb_mTestGem = define_module("TestGem");
   Data_Type<Hello> rb_cHello =
-    define_class_under<Hello>(rb_mMaxirmxTestGem, "Hello")
+    define_class_under<Hello>(rb_mTestGem, "Hello")
     .define_constructor(Constructor<Hello>())
     .define_method("hello", &Hello::hello);
 }

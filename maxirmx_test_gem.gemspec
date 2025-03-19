@@ -4,7 +4,7 @@ require_relative "lib/maxirmx_test_gem/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "maxirmx_test_gem"
-  spec.version       = MaxirmxTestGem::VERSION
+  spec.version       = TestGem::VERSION
   spec.authors       = ["Maxim [maxirmx] Samsonov"]
   spec.email         = ["maxirmx@sw.consulting"]
 

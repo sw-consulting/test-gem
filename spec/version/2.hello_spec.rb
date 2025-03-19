@@ -1,10 +1,10 @@
 require "spec_helper"
 
-RSpec.describe "MaxirmxTestGem" do
+RSpec.describe "TestGem" do
   describe "hello" do
     it "says hello" do |example|
       print "\n[#{example.description}] "
-      h = MaxirmxTestGem::Hello.new
+      h = TestGem::Hello.new
       expect(h).not_to be nil
       print " #{h.hello} "
 

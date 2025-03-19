@@ -1,7 +1,8 @@
 name: build
 
 on:
-#  push:
+  push:
+    branches: [ main ]
   pull_request:
   workflow_dispatch:
 
@@ -10,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - uses: ruby/setup-ruby@v1
       with:
@@ -27,8 +29,6 @@ jobs:
         path: pkg/*.gem
 
     - run: rm pkg/*.gem
-
-    - run: bundle exec rake --tasks
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
@@ -48,13 +48,12 @@ jobs:
         apk --no-cache --upgrade add build-base cmake git bash ruby-dev
         git config --global --add safe.directory /__w/test-gem/test-gem
 
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - run: gem install bundler
 
     - run: bundle install
-
-    - run: bundle exec rake --tasks
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 

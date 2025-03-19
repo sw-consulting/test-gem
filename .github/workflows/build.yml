@@ -21,7 +21,7 @@ jobs:
 
     - run: bundle exec rake build
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-ruby
         path: pkg/*.gem
@@ -32,7 +32,7 @@ jobs:
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-x86_64-linux
         path: pkg/*.gem
@@ -57,7 +57,7 @@ jobs:
 
     - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: pkg-x86_64-linux-musl
         path: pkg/*.gem

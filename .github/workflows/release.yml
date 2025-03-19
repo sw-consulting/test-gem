@@ -32,7 +32,8 @@ jobs:
           git config user.email maxirmx@sw.consulting
           gem install gem-release
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
-          NEW_VERSION=$(gem bump --version ${{ github.event.inputs.next_version }} --tag --push --pretend | grep "bump maxirmx_test_gem" | awk '{print $NF}')          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
+          NEW_VERSION=$(gem bump --version ${{ github.event.inputs.next_version }} --tag --push --pretend | grep "bump maxirmx_test_gem" | awk '{print $NF}')
+          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
           echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
 
   ubuntu:

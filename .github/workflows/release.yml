@@ -26,9 +26,9 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-            gem install gem-release
-            git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
-            gem bump --version ${{ github.event.inputs.next_version }} --tag --push
+          gem install gem-release
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+          gem bump --version ${{ github.event.inputs.next_version }} --tag --push
 
   ubuntu:
     runs-on: ubuntu-latest
@@ -46,16 +46,18 @@ jobs:
     - name: Install bundle
       run: bundle install
 
-    - run: bundle exec rake build
+    - name: Build gem
+      run: bundle exec rake build
 
     - uses: actions/upload-artifact@v4
       with:
         name: pkg-ruby
         path: pkg/*.gem
 
-    - run: rm pkg/*.gem
-
-    - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
+    - name: Build gem with native extension
+      run: |
+        rm pkg/*.gem
+        bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
     - uses: actions/upload-artifact@v4
       with:
@@ -82,7 +84,8 @@ jobs:
         gem install bundler
         bundle install
 
-    - run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
+    - name: Build gem with native extension
+      run: bundle exec rake gem:native:$(ruby -e "puts RUBY_PLATFORM")
 
     - uses: actions/upload-artifact@v4
       with:
